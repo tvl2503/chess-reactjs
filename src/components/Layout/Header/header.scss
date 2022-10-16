@@ -1,0 +1,27 @@
+.header{
+    background-color: #312e2b;
+    .menu{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        .menu--left{
+            display: flex;
+            .item{
+                padding: 20px 10px;
+                margin-left: 20px ;
+            }
+        }
+        .menu--right{
+            display: flex;
+            flex-direction: row;
+            .item{
+                padding: 20px 10px;
+                margin-left: 20px ;
+            }
+        }
+    }
+    a{
+        color: white
+
+    }
+}
