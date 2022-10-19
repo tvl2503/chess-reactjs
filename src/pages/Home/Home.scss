@@ -1,0 +1,37 @@
+.home {
+
+    .board {
+        display: flex;
+        flex-direction: column;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        padding: 100px;
+        background-color: #272522;
+        border-radius: 20px;
+        .css-1sumxir-MuiFormLabel-root-MuiInputLabel-root
+        {
+            color: white;
+        }
+        .css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root{
+            background-color: #95bb4a;
+            color: white;
+            border-radius: 20px;
+
+        }
+        a {
+            color: #fff;
+            margin-top: 20px;
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #95bb4a;
+            border-radius: 20px;
+
+            &:hover {
+                background-color: #b0d36a;
+            }
+        }
+    }
+
+}

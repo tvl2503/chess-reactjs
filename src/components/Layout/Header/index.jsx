@@ -1,30 +1,39 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Container } from '@mui/system'
 import Link from '@mui/material/Link';
-import './header.scss'
+import './header.scss';
+import { useSelector, useDispatch } from 'react-redux';
+import { logout } from '../../../redux/authSlice';
+import { useNavigate } from "react-router";
+
 const listMenu = [
     {
         name: 'Home',
         path : '/'
     }, 
     {
-        name: "Board",
-        path: 'board'
-    },
-    {
         name: "Profile",
-        path: 'profile'
+        path: '/profile'
     }
     ,
     {
         name : "Rank",
-        path: 'ranl'
+        path: '/rank'
     }
 ] 
 const style = {
     display: 'flex'
 }
 const Header = () => {
+    const dispatch = useDispatch();
+  let navigate = useNavigate();
+
+  
+    const {currentUser} = useSelector(state => state.user);
+    const handleLogout = () => {
+        console.log('logout');
+        dispatch(logout())
+    }
   return (
     <div className='header'>
         <Container >
@@ -32,9 +41,9 @@ const Header = () => {
                 <div className="menu--left">
                 {
                     listMenu.map((item, index) => (
-                        <div className="item">
+                        <div className="item"  key = {index}>
 
-                            <Link key = {index} href = {item.path}  underline="none">
+                            <Link href = {item.path}  underline="none">
                                 {item.name}
                             </Link>
                         </div>
@@ -42,17 +51,32 @@ const Header = () => {
                 }
                 </div>
                 <div className="menu--right">
-                <div className="item">
+                    {!currentUser &&
+                    <>
+                        <div className="item">
 
-                    <Link href = "auth/login" underline="none">
-                        Login
-                    </Link>
-                </div>
-                <div className="item">
-                    <Link href = "auth/register" underline="none">
-                        register
-                    </Link>
-                </div>
+                            <Link href = "/auth/login" underline="none">
+                                Login
+                            </Link>
+                        </div>
+                        <div className="item">
+                            <Link href = "/auth/register" underline="none">
+                                Register
+                            </Link>
+                        </div>
+                    </>
+                    
+                    }
+                    {currentUser &&
+                    <>
+                        <div className="item">Xin chào, {currentUser.fullname}</div>
+                        <div className="item">
+                            <button onClick={handleLogout}>
+                                Logout
+                            </button>
+                        </div>
+                    </>
+                    }
                     
                 </div>
             </div>

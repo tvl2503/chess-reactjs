@@ -1,5 +1,6 @@
 .header{
     background-color: #312e2b;
+    height: 75px;
     .menu{
         display: flex;
         justify-content: space-around;
@@ -14,9 +15,21 @@
         .menu--right{
             display: flex;
             flex-direction: row;
+            align-items: center;
             .item{
                 padding: 20px 10px;
                 margin-left: 20px ;
+                color: white
+
+            }
+            button{
+                border: 1px solid #ccc;
+                padding: 5px 20px;
+                border-radius: 20px;
+                font-weight: 500;
+                &:hover{
+                    background-color: bisque;
+                }
             }
         }
     }

@@ -13,17 +13,19 @@ const Layout = () => {
   return (
     <BrowserRouter>
       <Header />
+        <div className="main">
         <Routes>
             <Route path = "/" element = {<Home />} />
             <Route path = "board" element = {<Board />} />
             <Route path = "/rank" element = {<Rank />} />
             <Route path = "/profile" element = {<Profile />} />
-            <Route path = "auth" >
+            <Route path = "/auth" >
               <Route index = {true} element = {<Login />} />
               <Route path = "login" element = {<Login />} />
               <Route path = "register" element = {<Register />} />
             </Route>
         </Routes>
+        </div>
         <Footer />
     </BrowserRouter>
   )
